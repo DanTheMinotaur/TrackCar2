@@ -40,7 +40,16 @@ class XML_download {
 		$response = curl_exec($curl);
 
 		curl_close($curl);
+
 		return $response;
+	}
+
+	private function xml_to_json($xml) {
+		return json_encode(simplexml_load_string($xml));
+	}
+
+	protected function get_all_stations() {
+		$this->xml_to_json($this->curl_download($this->get_all_stations));
 	}
 
 	/*
@@ -53,13 +62,8 @@ class XML_download {
 			return mkdir($this->xml_dir . $dir);
 		}
 	}
-
 	public function download_all_stations() {
 		return write_file($this->xml_dir . 'AllStations.xml', $this->curl_download($this->get_all_stations));
-	}
-
-	public function xml_to_json($xml) {
-		return json_encode(simplexml_load_string($xml));
 	}
 
 	public function test_json() {
