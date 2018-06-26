@@ -17,7 +17,8 @@ class Test extends CI_Controller
 
 		$test_xml_download = new XML_download();
 
-		$test_xml_download->download_all_stations();
+		//$test_xml_download->download_all_stations();
+		$test_xml_download->test_json();
 
 		$this->load->view('base', $data);
 	}

@@ -57,6 +57,14 @@ class XML_download {
 	public function download_all_stations() {
 		return write_file($this->xml_dir . 'AllStations.xml', $this->curl_download($this->get_all_stations));
 	}
+
+	public function xml_to_json($xml) {
+		return json_encode(simplexml_load_string($xml));
+	}
+
+	public function test_json() {
+		echo $this->xml_to_json($this->curl_download($this->get_all_stations));
+	}
 }
 
 //$test = new XML_download();
