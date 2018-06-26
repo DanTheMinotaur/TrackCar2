@@ -24,7 +24,4 @@ class TestApi extends REST_Controller
 		$this->response($test_xml_download->test_json());
 	}
 
-	public function allStations_get() {
-
-	}
 }

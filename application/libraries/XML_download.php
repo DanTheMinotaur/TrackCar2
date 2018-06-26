@@ -8,6 +8,7 @@
 
 class XML_download {
 	private $xml_dir;
+	private $api_url;
 	private $get_all_stations;
 	protected $CI;
 
@@ -20,7 +21,8 @@ class XML_download {
 			echo "Folder Doesn't exist, reset to default";
 			$this->xml_dir = 'application/data/xml/'; // Reset to default if invalid location
 		}
-		$this->get_all_stations = 'http://api.irishrail.ie/realtime/realtime.asmx/getAllStationsXML';
+		$this->api_url = 'http://api.irishrail.ie/realtime/realtime.asmx/';
+		$this->get_all_stations = $this->api_url . 'getAllStationsXML';
 	}
 
 	private function curl_download($url) {
@@ -51,6 +53,22 @@ class XML_download {
 	public function get_all_stations() {
 		return $this->xml_to_json($this->curl_download($this->get_all_stations));
 	}
+
+	public function get_all_stations_by_type($type) {
+		return $this->xml_to_json($this->curl_download($this->get_all_stations . '_WithStationType?StationType=' . $type));
+	}
+
+	public function get_current_trains($type = Null) {
+		$current_trains_url = $this->curl_download($this->get_all_stations . 'getCurrentTrainsXML');
+		if(isset($type)) {
+			return $this->xml_to_json($current_trains_url . '_WithTrainType?TrainType=' . $type);
+		} else {
+			return $this->xml_to_json($current_trains_url);
+		}
+	}
+
+
+
 
 	/*
 	 * Checks if directory exists within the XML dir and creates it if not
