@@ -45,11 +45,11 @@ class XML_download {
 	}
 
 	private function xml_to_json($xml) {
-		return json_encode(simplexml_load_string($xml));
+		return json_decode(json_encode(simplexml_load_string($xml)));
 	}
 
-	protected function get_all_stations() {
-		$this->xml_to_json($this->curl_download($this->get_all_stations));
+	public function get_all_stations() {
+		return $this->xml_to_json($this->curl_download($this->get_all_stations));
 	}
 
 	/*

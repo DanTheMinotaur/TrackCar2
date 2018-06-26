@@ -13,9 +13,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class TestApi extends REST_Controller
 {
+	function __construct() {
+		parent::__construct();
+
+	}
+
 	public function index_get()
 	{
 		$test_xml_download = new XML_download();
 		$this->response($test_xml_download->test_json());
+	}
+
+	public function allStations_get() {
+
 	}
 }
