@@ -51,7 +51,7 @@ class Api extends REST_Controller {
 			if($type) {
 				$this->response($this->response($this->rail_api->get_all_stations_by_type($type)));
 			} else {
-				$this->response(array('error' => "Invalid Train Type Parameter"), 400);
+				$this->response(array('error' => "Invalid Train Type Parameter"), HTTP_BAD_REQUEST);
 			}
 		} else {
 			// Default action
@@ -61,7 +61,15 @@ class Api extends REST_Controller {
 
 	public function getTrains_get() {
 		if($this->get('type')) {
+			$type = $this->check_valid_type($this->get('type'));
 
+			if($type) {
+				$this->response($this->response($this->rail_api->get_current_trains($type)));
+			} else {
+				$this->response(array('error' => "Invalid Train Type Parameter"), HTTP_BAD_REQUEST);
+			}
+		} else {
+			$this->response($this->rail_api->get_current_trains());
 		}
 	}
 
