@@ -27,7 +27,6 @@ class Api extends REST_Controller {
 
 	}
 
-
 	public function index_get() {
 		$data['page_title'] = 'Irish Rail API';
 		$data['page_description'] = 'Find API methods';
@@ -51,7 +50,7 @@ class Api extends REST_Controller {
 			if($type) {
 				$this->response($this->response($this->rail_api->get_all_stations_by_type($type)));
 			} else {
-				$this->response(array('error' => "Invalid Train Type Parameter"), HTTP_BAD_REQUEST);
+				$this->response(array('error' => "Invalid Train Type Parameter"), 400);
 			}
 		} else {
 			// Default action
@@ -66,11 +65,22 @@ class Api extends REST_Controller {
 			if($type) {
 				$this->response($this->response($this->rail_api->get_current_trains($type)));
 			} else {
-				$this->response(array('error' => "Invalid Train Type Parameter"), HTTP_BAD_REQUEST);
+				$this->response(array('error' => "Invalid Train Type Parameter"), 400);
 			}
 		} else {
 			$this->response($this->rail_api->get_current_trains());
 		}
+	}
+
+	public function getStation_get() {
+		if($this->get('name') && $this->get('minutes')) {
+			//$this->response(array('error' => "Call Requires a name and/or minutes parameter."), HTTP_BAD_REQUEST);
+		} elseif ($this->get('name')) {
+			//$this->response(array('error' => "Call Requires a name and/or minutes parameter."), HTTP_BAD_REQUEST);
+		} else {
+			//$this->response(array('error' => "Call Requires a name and/or minutes parameter."), HTTP_BAD_REQUEST);
+		}
+		$this->response(array('error' => "Invalid Train Type Parameter"), 400);
 	}
 
 	private function check_valid_type($type) {
