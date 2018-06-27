@@ -12,19 +12,12 @@ require (APPPATH . 'libraries/XML_download.php');
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Api extends REST_Controller {
-	private $rail_api, $valid_types;
+	private $rail_api;
 
 	function __construct() {
 		parent::__construct();
 
 		$this->rail_api = new XML_download();
-		$this->valid_types  = array(
-			'all' => 'A',
-			'suburban' => 'S',
-			'mainland' => 'M',
-			'dart' => 'D'
-		);
-
 	}
 
 	public function index_get() {
