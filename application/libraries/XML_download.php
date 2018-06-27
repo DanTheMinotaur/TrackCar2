@@ -70,6 +70,7 @@ class XML_download {
 	}
 
 	public function get_station_data($station, $minutes = Null) {
+		$station = strtolower($station);
 		if(array_key_exists($station, $this->station_names_and_codes)) {
 			$station_code =  $this->station_names_and_codes[$station];
 
@@ -103,7 +104,7 @@ class XML_download {
 
 		foreach ($station_data as $stations) {
 			foreach ($stations as $station) {
-				$station_codes_names += [$station->StationDesc  => $station->StationCode];
+				$station_codes_names += [strtolower($station->StationDesc)  => $station->StationCode];
 			}
 		}
 
