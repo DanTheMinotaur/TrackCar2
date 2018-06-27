@@ -77,7 +77,6 @@ class XML_download {
 
 			if(!isset($minutes)) {
 				$station_data_url .= '?StationCode=' . $station_code;
-				echo $station_data_url;
 				return $this->xml_to_json($this->curl_download($station_data_url));
 			} else {
 				if(is_integer($minutes) && $minutes >= 5 && $minutes <= 90) {
@@ -132,6 +131,4 @@ class XML_download {
 	}
 }
 
-//$test = new XML_download();
-//echo gettype($test->get_station_data('Bayside', 15));
 

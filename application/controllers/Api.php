@@ -67,16 +67,29 @@ class Api extends REST_Controller {
 
 	public function getStation_get() {
 		if($this->get('name') && $this->get('minutes')) {
-			$result = $this->rail_api->get_station_data($this->get('name'), $this->get('minutes'));
+
+			$station_name = $this->get('name');
+			$minutes = intval($this->get('minutes'));
+
+			$result = $this->rail_api->get_station_data($station_name, $minutes);
 
 			if(is_string($result)) {
 				$this->response(['error' => $result], 400);
 			} else {
-
+				$this->response($result, 200);
 			}
 
 		} elseif ($this->get('name')) {
-			//$this->response(array('error' => "Call Requires a name and/or minutes parameter."), HTTP_BAD_REQUEST);
+
+			$station_name = $this->get('name');
+
+			$result = $this->rail_api->get_station_data($station_name);
+
+			if(is_string($result)) {
+				$this->response(['error' => $result], 400);
+			} else {
+				$this->response($result, 200);
+			}
 		} else {
 			//$this->response(array('error' => "Call Requires a name and/or minutes parameter."), HTTP_BAD_REQUEST);
 		}
