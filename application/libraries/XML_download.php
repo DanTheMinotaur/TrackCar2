@@ -133,5 +133,5 @@ class XML_download {
 }
 
 //$test = new XML_download();
-//echo var_dump($test->get_station_data('Bayside', 100));
+//echo gettype($test->get_station_data('Bayside', 15));
 

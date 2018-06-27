@@ -48,13 +48,13 @@ class Api extends REST_Controller {
 			$type = $this->check_valid_type($this->get('type'));
 
 			if($type) {
-				$this->response($this->response($this->rail_api->get_all_stations_by_type($type)));
+				$this->response($this->response($this->rail_api->get_all_stations_by_type($type)), 200);
 			} else {
 				$this->response(array('error' => "Invalid Train Type Parameter"), 400);
 			}
 		} else {
 			// Default action
-			$this->response($this->rail_api->get_all_stations());
+			$this->response($this->rail_api->get_all_stations(), 200);
 		}
 	}
 
@@ -63,9 +63,9 @@ class Api extends REST_Controller {
 			$type = $this->check_valid_type($this->get('type'));
 
 			if($type) {
-				$this->response($this->response($this->rail_api->get_current_trains($type)));
+				$this->response($this->response($this->rail_api->get_current_trains($type), 200));
 			} else {
-				$this->response(array('error' => "Invalid Train Type Parameter"), 400);
+				$this->response(['error' => "Invalid Train Type Parameter"], 400);
 			}
 		} else {
 			$this->response($this->rail_api->get_current_trains());
@@ -74,13 +74,20 @@ class Api extends REST_Controller {
 
 	public function getStation_get() {
 		if($this->get('name') && $this->get('minutes')) {
-			//$this->response(array('error' => "Call Requires a name and/or minutes parameter."), HTTP_BAD_REQUEST);
+			$result = $this->rail_api->get_station_data($this->get('name'), $this->get('minutes'));
+
+			if(is_string($result)) {
+				$this->response(['error' => $result], 400);
+			} else {
+
+			}
+
 		} elseif ($this->get('name')) {
 			//$this->response(array('error' => "Call Requires a name and/or minutes parameter."), HTTP_BAD_REQUEST);
 		} else {
 			//$this->response(array('error' => "Call Requires a name and/or minutes parameter."), HTTP_BAD_REQUEST);
 		}
-		$this->response(array('error' => "Invalid Train Type Parameter"), 400);
+		$this->response(['error' => "Invalid Train Type Parameter"], 400);
 	}
 
 	private function check_valid_type($type) {
