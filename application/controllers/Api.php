@@ -25,14 +25,6 @@ class Api extends REST_Controller {
 		$data['page_description'] = 'Find API methods';
 		$data['content'] = 'api/home';
 
-		$type = $this->check_valid_type('Dart');
-
-		if($type) {
-			echo "Truw";
-		} else {
-			echo "no";
-		}
-
 		$this->load->view('base', $data);
 	}
 
