@@ -8,3 +8,8 @@
 if(isset($page_description)){
 	echo $page_description;
 }
+?>
+
+<article class="container">
+	<h1>Irish Rail REST API</h1>
+</article>
