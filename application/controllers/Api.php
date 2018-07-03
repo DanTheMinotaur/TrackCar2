@@ -83,7 +83,7 @@ class Api extends REST_Controller {
 				$this->response($result, 200);
 			}
 		} else {
-			//$this->response(array('error' => "Call Requires a name and/or minutes parameter."), HTTP_BAD_REQUEST);
+			$this->response(['error' => "Call Requires a name and/or minutes parameter."], 400);
 		}
 		$this->response(['error' => "Invalid Train Type Parameter"], 400);
 	}

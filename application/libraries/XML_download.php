@@ -71,6 +71,13 @@ class XML_download {
 
 	public function get_station_data($station, $minutes = Null) {
 		$station = strtolower($station);
+		print($station);
+		print(var_dump($this->station_names_and_codes));
+		print($this->station_names_and_codes[strtoupper($station)]);
+		if(isset($this->station_names_and_codes[strtoupper($station)])) {
+			print("valid");
+		}
+
 		if(array_key_exists($station, $this->station_names_and_codes)) {
 			$station_code =  $this->station_names_and_codes[$station];
 
@@ -132,4 +139,6 @@ class XML_download {
 	}
 }
 
+$test = new XML_download();
 
+$test->get_station_data('KCOCK');

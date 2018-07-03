@@ -15,5 +15,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
 </head>
 
+<?php if(isset($background_colour)): ?>
+<body class="<?=$background_colour?>">
+<?php else: ?>
 <body>
+<?php endif; ?>
 <main>
+	<nav class="green darken-1">
+		<div class="nav-wrapper">
+			<a href="#!" class="brand-logo right">Track Car V2</a>
+			<ul class="left hide-on-med-and-down">
+				<li><a href="sass.html">API</a></li>
+			</ul>
+		</div>
+	</nav>
