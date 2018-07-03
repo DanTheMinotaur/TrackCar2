@@ -9,8 +9,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Home extends CI_Controller {
 
+	function __construct() {
+		redirect('/api');
+	}
 
-    public function index() {
+	public function index() {
         $data['page_title'] = 'Home';
         $data['page_description'] = 'Here is the home page.';
         $data['content'] = 'home/home';

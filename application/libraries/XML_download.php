@@ -140,7 +140,3 @@ class XML_download {
 		echo $this->xml_to_json($this->curl_download($this->get_all_stations));
 	}
 }
-
-$test = new XML_download();
-
-$test->get_station_data('KCOCK');

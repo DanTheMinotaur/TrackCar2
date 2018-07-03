@@ -10,7 +10,9 @@ include(APPPATH . 'libraries/XML_download.php');
 
 class Test extends CI_Controller
 {
-
+	function __construct() {
+		redirect('/api');
+	}
 
 	public function index() {
 		$data['page_title'] = 'Test Page';
