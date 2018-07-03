@@ -70,13 +70,15 @@ class XML_download {
 	}
 
 	public function get_station_data($station, $minutes = Null) {
-		$station = strtolower($station);
-		print($station);
-		print(var_dump($this->station_names_and_codes));
-		print($this->station_names_and_codes[strtoupper($station)]);
-		if(isset($this->station_names_and_codes[strtoupper($station)])) {
-			print("valid");
+		foreach ($this->station_names_and_codes as $name => $code) {
+			print(strtoupper($station) . ' --> ' .  $code);
+			if($station ==  $code) {
+				$station = strtolower($name);
+				break;
+			}
 		}
+
+		$station = strtolower($station);
 
 		if(array_key_exists($station, $this->station_names_and_codes)) {
 			$station_code =  $this->station_names_and_codes[$station];
