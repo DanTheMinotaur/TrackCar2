@@ -14,6 +14,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class TestApi extends REST_Controller
 {
 	function __construct() {
+        parent::__construct();
 		redirect('/api');
 	}
 

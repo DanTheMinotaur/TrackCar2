@@ -11,6 +11,7 @@ include(APPPATH . 'libraries/XML_download.php');
 class Test extends CI_Controller
 {
 	function __construct() {
+        parent::__construct();
 		redirect('/api');
 	}
 
