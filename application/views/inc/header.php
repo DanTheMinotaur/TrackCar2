@@ -25,7 +25,7 @@
 		<div class="nav-wrapper">
 			<a href="#!" class="brand-logo right">Track Car V2</a>
 			<ul class="left hide-on-med-and-down">
-				<li><a href="sass.html">API</a></li>
+				<li><a href="<?php echo base_url() . 'api'?>">API</a></li>
 			</ul>
 		</div>
 	</nav>

@@ -21,8 +21,8 @@ class Api extends REST_Controller {
 	}
 
 	public function index_get() {
-		$data['page_title'] = 'Irish Rail API';
-		$data['page_description'] = 'Find API methods';
+		$data['page_title'] = 'Irish Rail REST API';
+		$data['page_description'] = 'Reference';
 		$data['content'] = 'api/home';
 
 		$this->load->view('base', $data);
