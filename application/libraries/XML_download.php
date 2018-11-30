@@ -71,7 +71,7 @@ class XML_download {
 
 	public function get_station_data($station, $minutes = Null) {
 		foreach ($this->station_names_and_codes as $name => $code) {
-			print(strtoupper($station) . ' --> ' .  $code);
+			//print(strtoupper($station) . ' --> ' .  $code);
 			if($station ==  $code) {
 				$station = strtolower($name);
 				break;

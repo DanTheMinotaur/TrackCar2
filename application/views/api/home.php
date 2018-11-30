@@ -22,7 +22,7 @@
 		<h3>Example</h3>
 		<p>Here is an example of using the API it will return all stations that are serviced by the Dart and returns the data in XML.</p>
 		<blockquote>
-			<a href="https://rail.danshub.online/api/allStations?type=dart&format=xml" target="_blank">https://rail.danshub.online/api/allStations?type=dart&format=xml</a>
+			<a href="<?php echo base_url()?>api/stations?type=dart&format=xml" target="_blank"><?php echo base_url()?>api/stations?type=dart&format=xml</a>
 		</blockquote>
 	</section>
 	<section>
@@ -31,7 +31,7 @@
 			<h4>Get Stations Data</h4>
 			<p>Returns all stations available. </p>
 			<blockquote>
-				<a href="https://rail.danshub.online/api/allStations" target="_blank">https://rail.danshub.online/api/allStations</a>
+				<a href="<?php echo base_url()?>api/stations" target="_blank"><?php echo base_url()?>api/stations</a>
 			</blockquote>
 			<h5>Parameters</h5>
 			<p>"?type=" train type, the valid types are listed below and are case-insensitive.</p>
@@ -44,7 +44,7 @@
 			<h6>Example</h6>
 			<p>Returns all suburban stations</p>
 			<blockquote>
-				<a href="https://rail.danshub.online/api/allStations?type=Suburban" target="_blank">https://rail.danshub.online/api/allStations?type=Suburban</a>
+				<a href="<?php echo base_url()?>api/stations?type=Suburban" target="_blank"><?php echo base_url()?>api/stations?type=Suburban</a>
 			</blockquote>
 		</div>
 		<hr>
@@ -52,7 +52,7 @@
 			<h4>Get Train Data</h4>
 			<p>Returns all currently running trains. </p>
 			<blockquote>
-				<a href="https://rail.danshub.online/api/getTrains" target="_blank">https://rail.danshub.online/api/getTrains</a>
+				<a href="<?php echo base_url()?>api/trains" target="_blank"><?php echo base_url()?>api/trains</a>
 			</blockquote>
 			<h5>Parameters</h5>
 			<p>"?type=" train type, the valid types are listed below and are case-insensitive.</p>
@@ -65,7 +65,7 @@
 			<h6>Example</h6>
 			<p>Returns all dart trains currently running </p>
 			<blockquote>
-				<a href="https://rail.danshub.online/api/getTrains?type=dart" target="_blank">https://rail.danshub.online/api/getTrains?type=dart</a>
+				<a href="<?php echo base_url()?>api/trains?type=dart" target="_blank"><?php echo base_url()?>api/trains?type=dart</a>
 			</blockquote>
 		</div>
 		<hr>
@@ -264,7 +264,7 @@
 			<h6>Example</h6>
 			<p>Returns all trains coming into Portmarnock in the next 30 minutes.</p>
 			<blockquote>
-				<a href="https://rail.danshub.online/api/getStation?name=Portmarnock&minutes=30" target="_blank">https://rail.danshub.online/api/getStation?name=Portmarnock&minutes=30</a>
+				<a href="<?php echo base_url()?>api/station?name=Portmarnock&minutes=30" target="_blank"><?php echo base_url()?>api/getStation?name=Portmarnock&minutes=30</a>
 			</blockquote>
 		</div>
 		<hr>

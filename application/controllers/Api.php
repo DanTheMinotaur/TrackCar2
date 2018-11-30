@@ -28,7 +28,7 @@ class Api extends REST_Controller {
 		$this->load->view('base', $data);
 	}
 
-	public function allStations_get() {
+	public function stations_get() {
 		if($this->get('type')) {
 			$type = $this->check_valid_type($this->get('type'));
 
@@ -43,7 +43,7 @@ class Api extends REST_Controller {
 		}
 	}
 
-	public function getTrains_get() {
+	public function trains_get() {
 		if($this->get('type')) {
 			$type = $this->check_valid_type($this->get('type'));
 
@@ -57,7 +57,7 @@ class Api extends REST_Controller {
 		}
 	}
 
-	public function getStation_get() {
+	public function station_get() {
 		if($this->get('name') && $this->get('minutes')) {
 
 			$station_name = $this->get('name');
